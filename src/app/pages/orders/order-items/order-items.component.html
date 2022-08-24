@@ -1,0 +1,40 @@
+<div class="container-fluid">
+  <div class="row g-3">
+    <div class="col-md-7 col-lg-8">
+      <h4 class="mb-3">افزودن به لیست فروش </h4>
+      <hr/>
+      <form class="needs-validation" novalidate>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label for="firstName" class="form-label">کد کالا </label>
+            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              کد صحیح نیست
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <label for="lastName" class="form-label">نام کالا</label>
+            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+          </div>
+        </div>
+
+        <div class="col-sm-5">
+          <label for="cc-price" class="form-label">مبلغ</label>
+          <input type="number" class="form-control" id="cc-price" placeholder="" required>
+          <div class="invalid-feedback">
+           </div>
+        </div>
+
+        <hr/>
+
+        <div class="row justify-content-sm-end">
+          <button class="w-50 btn btn-primary btn-lg" type="submit">افزودن خرید</button>
+          <button class="w-50 btn btn-success btn-lg" type="submit">ثبت نهایی</button>
+        </div>
+        {{orderServiceData}}
+      </form>
+    </div>
+  </div>
+
+
+</div>
