@@ -1,1 +1,68 @@
-<p>list-orders works!</p>
+<div class="card w-auto m-2 ">
+  <div class="card-header">
+    <div class="row g-2">
+      <div class="col-auto">
+        <div class="p-0   bg-light">{{'1401/06/05'}}</div>
+      </div>
+      <div class="col-5">
+        <div class="p-0 text-center  bg-light">{{'فروشگاه مرکزی عطر شاهین'}}</div>
+      </div>
+      <div class="col-auto">
+        <div class="p-0   bg-light">{{'فروشنده آقا/خانم : '}}</div>
+      </div>
+    </div>
+    <div class="row g-2">
+      <div class="col-2">
+        <div class="p-1   bg-light">{{order.name}}
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="p-1   bg-light">{{order.family}}</div>
+      </div>
+      <div class="col-4">
+        <div class="p-1   bg-light">{{order.phone}}</div>
+      </div>
+      <div class="col-4">
+        <div class="p-1   bg-light">{{order.address}}</div>
+      </div>
+    </div>
+
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">کد عطر</th>
+      <th scope="col">نام عطر</th>
+      <th scope="col">مقدار</th>
+      <th scope="col">فیکسر</th>
+      <th scope="col">مبلغ</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr   *ngFor="let orderItem of order.itemOrderList;let idx=index">
+      <th scope="row">{{1+idx}}</th>
+      <td>{{orderItem.code}} </td>
+      <td> {{orderItem.name}}</td>
+      <td>{{orderItem.qty}}</td>
+      <td> {{orderItem.additionQty}} </td>
+      <td> {{orderItem.price}} </td>
+
+    </tr>
+    </tbody>
+    <tfoot class="">
+      <tr >
+        <th  ></th>
+        <td></td>
+        <td></td>
+        <td> {{totalPrice( order.itemOrderList).totalQty}} </td>
+        <td> {{totalPrice( order.itemOrderList).totalExtraQty}} </td>
+        <td>{{totalPrice( order.itemOrderList).totalPrice}} </td>
+      </tr>
+    </tfoot>
+  </table>
+<!--  <ul class="list-group list-group-flush" *ngFor="let orderItem of listOrderItems">-->
+<!--    <li class="list-group-item">{{orderItem.code}}      {{orderItem.name}}    {{orderItem.qty}} {{orderItem.additionQty}}  {{orderItem.price}}   </li>-->
+<!--  </ul>-->
+</div>

@@ -25,7 +25,8 @@ export class AppConfig {
     if (this.apiHostName.includes("infomud") || this.apiHostName.includes("heroku")) {
       this.baseApiPath = this.apiProtocol + "//" + this.apiHostName + "/";
     } else {
-      this.baseApiPath = this.apiProtocol + "//" + this.apiHostName + ":" + this.apiPort + "/";
+      this.baseApiPath =""
+      // this.baseApiPath = this.apiProtocol + "//" + this.apiHostName + ":" + this.apiPort + "/";
     }
     if (this.locale === undefined) {
       this.locale = navigator.language;
