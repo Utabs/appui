@@ -8,18 +8,63 @@
 <div class="card w-auto m-2 ">
   <div class="card-header">
     <div class="row g-2">
-      نحوه پرداخت
+      <h5 class="card-title"> نحوه پرداخت</h5>
     </div>
   </div>
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
 
+    <div class="row">
+      <div class="row g-2 align-items-center">
+        <div class="col-auto">
+          <h1 for="cash" class="col-form-label">دریافت نقدی</h1>
+        </div>
+        <div class="col-auto">
+          <input type="number" id="cash" class="form-control" placeholder="0" [(ngModel)]="priceCash">
+        </div>
+        <div class="col-auto">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row g-2 align-items-center">
+        <div class="col-auto">
+          <h1 for="card" class="col-form-label">دریافت کارت </h1>
+        </div>
+        <div class="col-auto">
+          <input type="number" id="card" class="form-control" placeholder="0" [(ngModel)]="priceCard">
+        </div>
+        <div class="col-auto">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="row g-2 align-items-center">
+        <div class="col-auto">
+          <h1 for="credit" class="col-form-label">دریافت اعتباری </h1>
+        </div>
+        <div class="col-auto">
+          <input type="number" id="credit" class="form-control" placeholder="0" [(ngModel)]="priceCredit">
+        </div>
+        <div class="col-auto">
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-<div class="container-fluid ">
-  <button   class="btn btn-success " >
-     ثبت و تایید فاکتور
-  </button>
-</div>
+  <hr/>
+  <h5> جمع کل :    {{((priceCredit || 0) + (priceCash || 0) + (priceCard || 0))|number}} </h5>
 
+
+    <button class="btn btn-success  btn-lg" (click)="registerOrder()">
+      ثبت و تایید فاکتور
+    </button>
+
+ </div>
+
+    <ul>
+      <li *ngFor="let item of list">{{item.name}}
+      <picture class="col p-3">
+        <source srcset="../../../../assets/product_img/{{item.imgUrl}}" type="image/svg+xml">
+        <img src="../../../../assets/product_img/{{item.imgUrl}}" class="img-fluid img-thumbnail" alt="..." style="width: 80px">
+      </picture>
+      </li>
+    </ul>

@@ -4,26 +4,40 @@
     <h5>افزودن به لیست فروش </h5>
   </div>
   <div class="card-body p-2">
-    <form class="needs-validation" [formGroup]="orderItemForm" (ngSubmit)="onFormSubmit()">
+    <form id="regFrm" class="needs-validation" [formGroup]="orderItemForm" (ngSubmit)="onFormSubmit()">
       <div class="input-group">
         <div class="col p-2">
+
           <label for="codez" class="form-label">کد ظرف </label>
-          <input type="number" class="form-control" id="codez" placeholder="" value="" formControlName="code">
+          <input id="codez" type="number" class="form-control"
+                 [ngbTypeahead]="search"
+                 [inputFormatter]="formatter"
+                 [resultFormatter]="resultFormatter"
+                 [(ngModel)]="model" [ngModelOptions]="{standalone: true}"
+           />
           <div class="invalid-feedback">
             کد صحیح نیست
           </div>
 
-          <label for="firstName" class="form-label">کد کالا </label>
-          <input type="number" class="form-control" id="firstName" placeholder="" value="" formControlName="code">
+          <label for="codeKala" class="form-label">کد کالا </label>
+<!--          <input type="number" class="form-control" id="firstName" placeholder="" value="" formControlName="code">-->
+          <input id="codeKala" type="number" class="form-control"
+                 formControlName="codekala"
+                 [ngbTypeahead]="search"
+                 [inputFormatter]="formatter"
+                 [resultFormatter]="formatter"
+          />
+          {{orderItemForm.value.name}}
           <div class="invalid-feedback">
             کد صحیح نیست
           </div>
           <label for="lastName" class="form-label">نام کالا</label>
-          <input type="text" class="form-control" id="lastName" placeholder="" value="" formControlName="name">
+          <input type="text" class="form-control" id="lastName" placeholder="" value="" formControlName="name" [(ngModel)]="orderItemForm.value.name">
         </div>
-        <picture class="col p-3">
-          <source srcset="../../../../assets/1.jpg" type="image/svg+xml">
-          <img src="../../../../assets/1.jpg" class="img-fluid img-thumbnail" alt="...">
+
+         <picture class="col p-3">
+          <source  *ngIf="(model?.name)"  srcset="../../../../assets/product_img/{{model?.imgUrl}}" type="image/svg+xml">
+          <img src="../../../../assets/product_img/{{model?.imgUrl}}" class="img-fluid img-thumbnail" alt="..." style="width: 200px">
         </picture>
       </div>
 
@@ -83,5 +97,16 @@
   </div>
 </div>
 
+<!--<select class="form-select-lg" id="select02" [(ngModel)]="codeZarf" (change)="selectOption($event.target)">-->
+<!--  <option [value]="item.code" *ngFor="let item of products" [selected]="item.code">{{item.code}}</option>-->
+
+<!--</select>-->
+
+
+<div class="col-md-5 ng-scope">
+
+  <hr>
+  <pre>Model: {{ model | json }}</pre>
+</div>
 
 <app-list-orders></app-list-orders>

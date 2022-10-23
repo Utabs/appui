@@ -7,7 +7,7 @@ export class AppConfig {
   public currencyFormat = {style: "currency", currency: "RIAL"};
   public dateFormat = {year: 'numeric', month: 'short', day: 'numeric'};
   // API Related configs
-  public apiPort: string = "1234";
+  public apiPort: string = "8080";
   public apiProtocol: string | undefined;
   public apiHostName: string | undefined;
   public baseApiPath: string | undefined;
@@ -23,7 +23,8 @@ export class AppConfig {
       this.apiPort = window.location.port;
     }
     if (this.apiHostName.includes("infomud") || this.apiHostName.includes("heroku")) {
-      this.baseApiPath = this.apiProtocol + "//" + this.apiHostName + "/";
+      this.baseApiPath = ""
+        // this.apiProtocol + "//" + this.apiHostName + "/";
     } else {
       this.baseApiPath =""
       // this.baseApiPath = this.apiProtocol + "//" + this.apiHostName + ":" + this.apiPort + "/";

@@ -41,28 +41,28 @@
     </tr>
     </thead>
     <tbody>
-    <tr   *ngFor="let orderItem of order.itemOrderList;let idx=index">
-      <th scope="row">{{1+idx}}</th>
+    <tr *ngFor="let orderItem of order.itemOrderList;let idx=index">
+      <th scope="row">{{1 + idx}}</th>
       <td>{{orderItem.code}} </td>
-      <td> {{orderItem.name}}</td>
+      <td>{{orderItem.name}}</td>
       <td>{{orderItem.qty}}</td>
-      <td> {{orderItem.additionQty}} </td>
-      <td> {{orderItem.price}} </td>
+      <td>{{orderItem.additionQty}} </td>
+      <td>{{orderItem.price}} </td>
 
     </tr>
     </tbody>
     <tfoot class="">
-      <tr >
-        <th  ></th>
-        <td></td>
-        <td></td>
-        <td> {{totalPrice( order.itemOrderList).totalQty}} </td>
-        <td> {{totalPrice( order.itemOrderList).totalExtraQty}} </td>
-        <td>{{totalPrice( order.itemOrderList).totalPrice}} </td>
-      </tr>
+    <tr>
+      <th></th>
+      <td></td>
+      <td></td>
+      <td>{{totalPrice(order.itemOrderList).totalQty}} </td>
+      <td>{{totalPrice(order.itemOrderList).totalExtraQty}} </td>
+      <td>{{totalPrice(order.itemOrderList).totalPrice}} </td>
+    </tr>
     </tfoot>
   </table>
-<!--  <ul class="list-group list-group-flush" *ngFor="let orderItem of listOrderItems">-->
-<!--    <li class="list-group-item">{{orderItem.code}}      {{orderItem.name}}    {{orderItem.qty}} {{orderItem.additionQty}}  {{orderItem.price}}   </li>-->
-<!--  </ul>-->
+  <!--  <ul class="list-group list-group-flush" *ngFor="let orderItem of listOrderItems">-->
+  <!--    <li class="list-group-item">{{orderItem.code}}      {{orderItem.name}}    {{orderItem.qty}} {{orderItem.additionQty}}  {{orderItem.price}}   </li>-->
+  <!--  </ul>-->
 </div>

@@ -10,25 +10,37 @@ import {OrderService} from "../../service/order.service";
 })
 export class PaymentComponent implements OnInit {
 
+
   constructor(private router: Router,
               private productService: ProductService,
               private orderService: OrderService) {
-    this.orderService.getOrderRecord().subscribe(data => {
-      data.itemOrderList.forEach(x=>{console.log(x.code)})
-    })
   }
 
   list: any[] = []
+  ;
 
   ngOnInit(): void {
-    var me = this;
-    me.productService.getProducts().subscribe(data => {
-      this.list = data
-    });
-
+     this.productService.getProducts(30, 10).subscribe(
+      data => {
+        this.list = data
+      },error => alert("error"));
   }
 
-  getItem(e: any) {
+  priceCash!: number ;
+  priceCredit!: number ;
+  priceCard!: number ;
+
+  onKey(elem: any) {
+     elem.target.value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+   }
+
+  registerOrder(){
+    this.productService.getProducts(30, 10).subscribe(
+      data => {
+        this.list = data
+      },error => alert("error"));
+    alert("dddddd")
+   this.orderService.getOrderRecord().subscribe(data=> console.log(data)).unsubscribe();
 
   }
 

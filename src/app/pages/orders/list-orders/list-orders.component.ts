@@ -26,10 +26,12 @@ export class ListOrdersComponent implements OnInit, OnDestroy {
 
   totalPrice(listOrderItems: OrderItemModel[]) {
     let myObj = new x();
-    for (let item of listOrderItems) {
-      myObj.totalPrice += item.price
-      myObj.totalQty += item.qty
-      myObj.totalExtraQty += item.additionQty
+    if (listOrderItems?.length > 0) {
+      for (let item of listOrderItems) {
+        myObj.totalPrice += item.price
+        myObj.totalQty += item.qty
+        myObj.totalExtraQty += item.additionQty
+      }
     }
     return myObj;
   }
